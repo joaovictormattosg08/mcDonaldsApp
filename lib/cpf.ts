@@ -33,15 +33,12 @@ export const isValidteCPF = (cpf: string): boolean => {
     for(let i = 0; i < 10; i++){
         sum += parseInt(digits.charAt(i), 10) * (11 - i);
     }
+    
+    let secondVerifier = (sum * 10) % 11;
+    secondVerifier = secondVerifier === 10 ? 0 : secondVerifier;
 
+    return secondVerifier === parseInt(digits.charAt(10), 10);
 
-
-
-
-
-
-
-
-    return true;
-}
+    
+};
 
